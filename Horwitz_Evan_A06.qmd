@@ -102,6 +102,8 @@ Extract the value `8162` (LeBron James points) in 2 different ways:
 - using names
 
 ```{r}
+print(player_info[[2]][4])
+player_info$LJ$points
 
 ```
 
@@ -113,7 +115,12 @@ Add a new named element to the end of each player's list called `height`. The he
 Print the `player_info` list to prove you were successful.
 
 ```{r}
-
+player_info$MJ$height <- 78
+player_info$LJ$height <- 81
+player_info$KB$height <- 78
+player_info$KA$height <- 86
+player_info$SO$height <- 85
+print(player_info)
 ```
 
 
@@ -132,6 +139,16 @@ Hint: initialize an empty list
 Note: this must still run correctly even if the values were to change or if another player were added to the list or if the player order changed.
 
 ```{r}
+# create a new list
+points_per_game = list()
+
+for(name in names(player_info)){
+  # assign points / games_played to each name in list
+  points_per_game[[name]] <- player_info[[name]]$points / player_info[[name]]$games_played
+  
+}
+
+print(points_per_game)
 
 ```
 
@@ -143,7 +160,15 @@ Use the list created in Part c and an appropriate apply function to round each v
 Store the output as a vector and print the results.
 
 ```{r}
+# iterate through each index
+index <- 1
+# round each value
+for(i in points_per_game){
+  points_per_game[[index]] <- round(i, 2)
+  index <- index + 1
+}
 
+print(points_per_game)
 ```
 
 
