@@ -11,7 +11,7 @@ format:
 execute:
   message: false
   warning: false
----
+--- 
 
 # Instructions
 
@@ -31,7 +31,7 @@ The grader cannot grade what they cannot see! Failure to render your document af
 
 ## Question 1 (5 points)
 
-Link your RStudio to your GitHub account and create a **public** repository where you will commit and push this assignment to. We will be following the instructions in [https://happygitwithr.com/](https://happygitwithr.com/) The chapters listed below are referring to this book.
+Link your RStudio to your GitHub account and create a **public** repository where you will commit and push this assignment to. We will be following the instructions in [https://github.com/evanhorwitz/Horwitz_Evan_201_A06](https://happygitwithr.com/) The chapters listed below are referring to this book.
 
 
 Refer to the **instructions html** for this question! The instructions to setup GitHub are not included in this template to save space.
@@ -48,7 +48,7 @@ To get full credit for this Question you must:
 
 ## Github Repo Link
 
-[https://your-github-repo-url](https://your-github-repo-url)
+[https://github.com/evanhorwitz/Horwitz_Evan_201_A06](https://github.com/evanhorwitz/Horwitz_Evan_201_A06)
 
 :::
 
@@ -56,7 +56,7 @@ To get full credit for this Question you must:
 
 ## Screenshot/image of RStudio
 
-![](filepath.png)
+![](github_setup.png)
 
 :::
 
