@@ -190,7 +190,23 @@ Hint: use `MARGIN = 1:2` to apply the function to each value instead of only a r
 
 ```{r}
 
+print(mat_rand)
+# we define a function within the apply to round different amounts for each value
+mat_rand <- apply(mat_rand, 1:2, function(x){
+  # use nchar to check how long each numeric is
+  # convert to char to use nchar
+  if(nchar(as.character(x)) == 2){
+    round(x, -1)
+  } else if(nchar(as.character(x)) == 3){
+    round(x, -2)
+  } else if(nchar(as.character(x)) == 4){
+    round(x, -3)
+  }
+  })
+
+print(mat_rand)
 ```
+
 
 
 ## Question 4 (9 points)
