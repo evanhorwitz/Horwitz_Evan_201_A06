@@ -224,12 +224,21 @@ max_temps <- read_tsv("state_max_temps.tsv") |>
   janitor::clean_names()
 ```
 
+
 ### Part a (2 points)
 
 Calculate the average temperature for each month across the whole data frame (using the data for all three states together).
 
 ```{r}
+temp_avgs <- list()
 
+for(name in names(max_temps)){
+  if(name != 'state' && name != 'year'){
+    temp_avgs[[name]] <- mean((unlist(max_temps[[name]])))
+  }
+}
+
+print(temp_avgs)
 ```
 
 
@@ -244,6 +253,9 @@ Create three new data frames by slicing the data by state.
 No need to print any output here.
 
 ```{r}
+col_temps <- filter(max_temps, state == 'CO')
+oh_temps <- filter(max_temps, state == 'OH')
+vir_temps <- filter(max_temps, state == 'VA')
 
 ```
 
@@ -265,6 +277,11 @@ Example (this is NOT the answer just an example of what goes in the {}):
 Note: This code should still run successfully even if the numbers were to change.
 
 ```{r}
+# create a new vector of medians using apply
+col_medians <- apply(col_temps[, 3:14], 1, median)
+
+# use which.max() as an index
+paste0("The maximum median annual temperature of ", max(col_medians), " occured in ", col_temps[[2]][[which.max(col_medians)]], " and the minimum median annual temperature of ", min(col_medians), " occured in ", col_temps[[2]][[which.min(col_medians)]], "." )
 
 ```
 
@@ -278,6 +295,7 @@ Example: The number 312 would return 6 (3 + 1 + 2)
 Run your function with 935068.
 
 ```{r}
+col_temps[[2]][[40]]
 
 ```
 
