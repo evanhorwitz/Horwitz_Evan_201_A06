@@ -295,7 +295,17 @@ Example: The number 312 would return 6 (3 + 1 + 2)
 Run your function with 935068.
 
 ```{r}
-col_temps[[2]][[40]]
 
+sum <- function(n) {
+  # define base case (if n is below 10 it is itself)
+  if (n < 10) {return(n)} else {
+    # use recursive to iterate through digits
+    # %% by 10 yields most recent digit 
+    return(n %% 10 + sum(n %/% 10))
+  }
+}
+
+
+sum(935068)
 ```
 

@@ -3370,12 +3370,12 @@ $SO
 <div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(mat_rand)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>     [,1] [,2] [,3] [,4] [,5]
-[1,]  673  198  923  107  299
-[2,] 1031   61 1433 1979   10
-[3,]   57  497  892  437 1443
-[4,]  664 1065   95  177   60
-[5,]   51 1628   40 1693   20
-[6,] 1537   23 1407   82 1098</code></pre>
+[1,]   21 1430  108 1446 1256
+[2,]   98  396  818  377 1012
+[3,] 1571   55   38   53   75
+[4,]  978   13   69  579 1502
+[5,]   12 1535  466   30 1009
+[6,] 1851 1731  734  102  973</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="co"># we define a function within the apply to round different amounts for each value</span></span>
 <span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>mat_rand <span class="ot">&lt;-</span> <span class="fu">apply</span>(mat_rand, <span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>, <span class="cf">function</span>(x){</span>
@@ -3393,12 +3393,12 @@ $SO
 <span id="cb15-14"><a href="#cb15-14" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(mat_rand)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>     [,1] [,2] [,3] [,4] [,5]
-[1,]  700  200  900  100  300
-[2,] 1000   60 1000 2000   10
-[3,]   60  500  900  400 1000
-[4,]  700 1000  100  200   60
-[5,]   50 2000   40 2000   20
-[6,] 2000   20 1000   80 1000</code></pre>
+[1,]   20 1000  100 1000 1000
+[2,]  100  400  800  400 1000
+[3,] 2000   60   40   50   80
+[4,] 1000   10   70  600 2000
+[5,]   10 2000  500   30 1000
+[6,] 2000 2000  700  100 1000</code></pre>
 </div>
 </div>
 </section>
@@ -3509,9 +3509,19 @@ $dec
 <p>Example: The number 312 would return 6 (3 + 1 + 2)</p>
 <p>Run your function with 935068.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>col_temps[[<span class="dv">2</span>]][[<span class="dv">40</span>]]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>sum <span class="ot">&lt;-</span> <span class="cf">function</span>(n) {</span>
+<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a>  <span class="co"># define base case (if n is below 10 it is itself)</span></span>
+<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> (n <span class="sc">&lt;</span> <span class="dv">10</span>) {<span class="fu">return</span>(n)} <span class="cf">else</span> {</span>
+<span id="cb23-4"><a href="#cb23-4" aria-hidden="true" tabindex="-1"></a>    <span class="co"># use recursive to iterate through digits</span></span>
+<span id="cb23-5"><a href="#cb23-5" aria-hidden="true" tabindex="-1"></a>    <span class="co"># %% by 10 yields most recent digit </span></span>
+<span id="cb23-6"><a href="#cb23-6" aria-hidden="true" tabindex="-1"></a>    <span class="fu">return</span>(n <span class="sc">%%</span> <span class="dv">10</span> <span class="sc">+</span> <span class="fu">sum</span>(n <span class="sc">%/%</span> <span class="dv">10</span>))</span>
+<span id="cb23-7"><a href="#cb23-7" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb23-8"><a href="#cb23-8" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb23-9"><a href="#cb23-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-10"><a href="#cb23-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-11"><a href="#cb23-11" aria-hidden="true" tabindex="-1"></a><span class="fu">sum</span>(<span class="dv">935068</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 1934</code></pre>
+<pre><code>[1] 31</code></pre>
 </div>
 </div>
 </section>
